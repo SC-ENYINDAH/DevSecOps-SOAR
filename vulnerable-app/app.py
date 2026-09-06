@@ -6,8 +6,8 @@ def get_user(user_input):
 
     cursor = conn.cursor()
 
-    query = f"SELECT * FROM users WHERE username = '{user_input}'"
+    query = f"SELECT * FROM users WHERE username = ?"
 
-    cursor.execute(query)
+    cursor.execute(query,(user_input,))
 
     return cursor.fetchall()
