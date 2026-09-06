@@ -1,0 +1,18 @@
+services:
+
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
+    
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
